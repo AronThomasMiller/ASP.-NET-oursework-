@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<style>
+    input {
+        border-radius:  0px;
+    }
+</style>
+<div>
+    <h3>Форма оформлення покупки</h3>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+        <table>
+            <tr>
+                <td><p>Введіт своє імя:</p></td>
+                <td><input type="text" name="Person" /> </td>
+            </tr>
+            <tr>
+                <td><p>Введіт свою електронну адрессу:</p></td>
+                <td>
+                    <input type="text" name="Address"  />
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="Відправити" class="btn btn-success" data-toggle="modal" data-target="#modWin"/> </td><td></td></tr>
+        </table>
+    </form>
+</div>

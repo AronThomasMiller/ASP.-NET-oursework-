@@ -1,0 +1,42 @@
+﻿@model LibraryCursova.Models.Book
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новая книга</h2>
+<form method="post" action="">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name, "Назва книги")
+        <br />
+        @Html.EditorFor(model => model.Name)
+        <br /><br />
+        @Html.LabelFor(model => model.AvtorName, "Автор")
+        <br />
+        @Html.EditorFor(model => model.AvtorName)
+        <br /><br />
+        @Html.LabelFor(model => model.Price, "Ціна")
+        <br />
+        @Html.EditorFor(model => model.Price)
+        <br /><br />
+        @Html.LabelFor(model => model.Genre, "Жанр")
+        <br />
+        @Html.EditorFor(model => model.Genre)
+        <br /><br />
+        @Html.LabelFor(model => model.Vudavnuctvo, "Видавництво")
+        <br />
+        @Html.EditorFor(model => model.Vudavnuctvo)
+        <br /><br />
+        @Html.LabelFor(model => model.YearOfVudannya, "Рік видання")
+        <br />
+        @Html.EditorFor(model => model.YearOfVudannya)
+        <br /><br />
+        @Html.LabelFor(model => model.CompanyId, "ІД компанії")
+        <br />
+        @Html.EditorFor(model => model.CompanyId)
+        <br /><br />
+   
+        <input type="submit" value="Додати" class="btn btn-success" />
+    }
+</form>

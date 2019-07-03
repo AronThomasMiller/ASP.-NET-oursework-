@@ -1,0 +1,37 @@
+﻿
+@model List<LibraryCursova.Controllers.ManagedUsers>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var roles = ViewBag.Roles as List<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>;
+}
+
+<!DOCTYPE html>
+<style>
+    .edit-user-btn{
+        padding-left: 10px;
+    }
+    .td-role{ 
+        padding-right: 10px;
+    }
+</style>
+@Html.Hidden("EditUserUrl", Url.Action("EditUser", "Users"))
+<body>
+    <div>
+        </br>
+        <h2>Ролі користувачів</h2>
+        </br>
+        <table>
+            @{
+                foreach (var b in Model)
+                {
+                    <tr>
+                        <td class="td-role"><p>@b.UserName</p></td>
+                        <td class="td-role"><p>@b.RoleName</p></td>
+                        <td class="td-role"><p>@Html.DropDownList("Role", new SelectList(roles, "Id", "Name", b.RoleId))</p></td>
+                        <td><p><button class="edit-user-btn btn btn-warning" data-element="@Json.Encode(b)">Редагувати</button></p></td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</body>

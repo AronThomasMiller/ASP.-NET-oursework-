@@ -1,0 +1,36 @@
+﻿@model LibraryCursova.Models.Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <h1>Ваш чек відправленний вам на почтову скриньку!</h1>
+    <h2> Дякуємо за купівлю!</h2>
+    <h3>
+        Ви придбали книгу:
+        @Model.Name від автора @Model.AvtorName, ціна @Model.Price гривень.
+    </h3>
+</body>
+
+@*<body>
+<div class="modal fade" id="modWin" tabindex="0">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">x</button>
+                <h3 class="modal-title" id="modalLable">Ваш чек</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Ваше замовлення: </h4>
+            </div>
+            <div class="modal-footer">
+                <button id="btnModBack" class="btn btn-danger">Назад</button>
+                <button id="btnModSuccess" class="btn btn-success">Підтвердити</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>*@
+
+
+

@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<style>
+    .th_table{
+        padding-right: 10px;
+    }
+    #edit-btn{
+        margin-left: 10px;
+    }
+</style>
+<div>
+    </br><h2> Розпродаж книг</h2></br>
+    @{
+        if (ViewBag.Books == null)
+        {
+            <div>На жаль. книжок в наявності немає.</div>
+        }
+        else
+        {
+            <table>
+                <tr>
+                    <th class="th_table"><p>Назва</p></th>
+                    <th class="th_table"><p>Автор</p></th>
+                    <th class="th_table"><p>Ціна</p></th>
+                    <th class="th_table"><p>Видавництво</p></th>
+                    <th class="th_table"><p>Рік видання</p></th>
+                    <th class="th_table"><p>Жанр</p></th>
+                    <th class="th_table"><p>Кількість</p></th>
+                </tr>
+                @{ foreach (var b in ViewBag.Books)
+                    {
+                        <tr>
+                            <td><p>@b.Name</p></td>
+                            <td><p>@b.AvtorName</p></td>
+                            <td><p>@b.Price</p></td>
+                            <td><p>@b.Vudavnuctvo</p></td>
+                            <td><p>@b.YearOfVudannya</p></td>
+                            <td><p>@b.Genre</p></td>
+                            <td><p>@b.Count</p></td>
+                            <td><p><a href="/Home/Buy/@b.Id" class="btn btn-success">Придбати </a></p></td>
+                            @{
+                                if (User.IsInRole("admin") || User.IsInRole("worker"))
+                                {
+                                    <td><p><a href="/Books/EditBook/@b.Id" class="btn btn-warning"  id="edit-btn">Редагувати</a></p></td>
+                                }
+                            }
+                        </tr>
+                    }
+
+                }
+            </table>
+        }
+    }
+    @{
+        if (User.IsInRole("admin") || User.IsInRole("worker"))
+        {
+            <p><a href="/Books/AddBook" class="btn btn-info">Додати книжку</a></p>
+        }
+    }
+    <p><a href="/Books/OrderBook" class="btn btn-primary">Замовити книжку</a></p>
+    </br>
+    @{
+        if (User.IsInRole("admin") || User.IsInRole("worker"))
+        {
+            <h3>Переглянути прибуток ви можете, перейшовши по посиланню:</h3>
+            <h4>C:\Users\AronThomasMiller\source\repos\LibraryCursova\LibraryCursova\Sources\Profit.txt</h4>
+        }
+    }
+</div>

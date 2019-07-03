@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Редактировать книгу";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model LibraryCursova.Models.Book
+<h2>Книга № @Model.Id</h2>
+@using (Html.BeginForm("EditBook", "Books", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    <p>
+        @Html.LabelFor(m => m.Name, "Назва книги*")
+        <br />
+        @Html.EditorFor(m => m.Name)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.AvtorName, "Автор")
+        <br />
+        @Html.EditorFor(m => m.AvtorName)
+
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Price, "Ціна")
+        <br />
+        @Html.EditorFor(m => m.Price)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Vudavnuctvo, "Видавництво")
+        <br />
+        @Html.EditorFor(m => m.Vudavnuctvo)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.YearOfVudannya, "Рік видання")
+        <br />
+        @Html.EditorFor(m => m.YearOfVudannya)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Genre, "Жанр")
+        <br />
+        @Html.EditorFor(m => m.Genre)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.CompanyId, "ІД компанії*")
+        <br />
+        @Html.EditorFor(m => m.CompanyId)
+       
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Count, "Кількість")
+        <br />
+        @Html.EditorFor(m => m.Count)
+        <h6>*Рекомендуємо не міняти. Рекомендовано вказувати компанію з ІД 1.</h6>
+    </p>
+    <p><input type="submit" value="Підтвердити" class="btn btn-success" /></p>
+</fieldset>
+}

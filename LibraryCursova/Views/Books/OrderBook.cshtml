@@ -1,0 +1,25 @@
+﻿@model LibraryCursova.Models.Book
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Нове замовлення</h2>
+<form method="post" action="">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name, "Назва книги")
+        <br />
+        @Html.EditorFor(model => model.Name)
+        <br /><br />
+        @Html.LabelFor(model => model.AvtorName, "Автор")
+        <br />
+        @Html.EditorFor(model => model.AvtorName)
+        <br /><br />
+        @*@Html.LabelFor(model => model.Id, "ІД")
+            <br />
+            @Html.EditorFor(model => model.Id)
+            <br /><br />*@
+        <input type="submit" value="Замовити" class="btn btn-success" />
+    }
+</form>

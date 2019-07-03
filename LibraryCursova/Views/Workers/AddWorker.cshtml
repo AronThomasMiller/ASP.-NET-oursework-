@@ -1,0 +1,26 @@
+﻿@model LibraryCursova.Models.Seller
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новий працівник</h2>
+<form method="post" action="">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name, "Ім'я працівника")
+        <br />
+        @Html.EditorFor(model => model.Name)
+        <br /><br />
+        @Html.LabelFor(model => model.StartWorkTime, "Час початку роботи")
+        <br />
+        @Html.EditorFor(model => model.StartWorkTime)
+        <br /><br />
+        @Html.LabelFor(model => model.EndWorkTime, "Час кінця роботи")
+        <br />
+        @Html.EditorFor(model => model.EndWorkTime)
+        <br /><br />
+
+        <input type="submit" value="Додати" class="btn btn-success" />
+    }
+</form>

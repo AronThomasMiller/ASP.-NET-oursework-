@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<div>
+    <h2>Працівники магазину</h2>
+    <table>
+        <tr>
+            <td><p>Ім'я працівника</p></td>
+            <td><p>Час початку роботи</p></td>
+            <td><p>Час кінця роботи</p></td>
+        </tr>
+        @{ foreach (var b in ViewBag.Sellers)
+            {
+                <tr>
+                    <td><p>@b.Name</p></td>
+                    <td><p>@b.StartWorkTime</p></td>
+                    <td><p>@b.EndWorkTime</p></td>
+                    <td><p><a href="/Workers/EditWorker/@b.Id" class="btn btn-warning">Редагувати</a></p></td>
+                </tr>
+            }
+        }
+    </table>
+    <p><a href="/Workers/AddWorker" class="btn btn-success">Додати працівника</a></p>
+</div>

@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Редагувати працівника";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model LibraryCursova.Models.Seller
+<h2>Працівник  @Model.Id  -  @Model.Name</h2>
+@using (Html.BeginForm("EditWorker", "Workers", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Name, "Ім'я працівника")
+            <br />
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.StartWorkTime, "Час початку роботи")
+            <br />
+            @Html.EditorFor(m => m.StartWorkTime)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.EndWorkTime, "Час кінця роботи")
+            <br />
+            @Html.EditorFor(m => m.EndWorkTime)
+        </p>
+        <p><input type="submit" value="Підтвердити" class="btn btn-success"/></p>
+    </fieldset>
+}
